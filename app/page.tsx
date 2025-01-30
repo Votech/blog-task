@@ -1,10 +1,26 @@
+'use client';
+
 import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
+import CategorySection from '@/features/categorySelection/components/CategorySection';
+import { PostCategory } from '@/types/blog';
+import { useState } from 'react';
 
 export default function Home() {
+  const [category, setCategory] = useState<PostCategory | ''>('');
+
+  function handleSetCategory(category: PostCategory) {
+    setCategory(category);
+  }
   return (
     <div>
       <ContentWrapper>
-        <h1 className="py-5 text-2xl md:py-10 md:text-3xl">Blog Edukacyjny</h1>
+        <h1 className="bg-primary py-5 md:py-10">Blog Edukacyjny</h1>
+      </ContentWrapper>
+      <ContentWrapper className="bg-gray-100 py-5 md:py-10">
+        <CategorySection
+          selectedCategory={category}
+          onSelectCategory={handleSetCategory}
+        />
       </ContentWrapper>
     </div>
   );

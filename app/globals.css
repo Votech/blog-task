@@ -5,6 +5,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --category-blue: #444e8d;
+  --category-blue-dark: #2a2f4e;
+  --category-orange: #ffbf42;
+  --category-orange-dark: #ff8a00;
+  --category-red: #d94f4f;
+  --category-red-dark: #a02e41;
+  --category-green: #82e49a;
+  --category-green-dark: #4f9d69;
+  --silver-grey: #414042;
+  --cold-blue: #3f3a54;
+  --rounded-diagonal: rounded-tl-lg rounded-br-lg;
 }
 
 body {
@@ -13,4 +24,18 @@ body {
   font-family:
     Open Sans,
     sans-serif;
+}
+
+h1 {
+  @apply text-2xl font-bold md:text-3xl;
+}
+
+h2 {
+  @apply text-xl font-bold md:text-2xl;
+}
+
+@layer base {
+  .rounded-diagonal {
+    @apply rounded-br-[40px] rounded-tl-[40px];
+  }
 }
