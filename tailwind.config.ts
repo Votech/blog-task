@@ -22,9 +22,11 @@ export default {
         'category-green-dark': 'var(--category-green-dark)',
         'silver-grey': 'var(--silver-grey)',
         'cold-blue': 'var(--cold-blue)',
+        'violet-red': 'var(--violet-red)',
       },
       screens: {
         xs: '400px',
+        xs2: '500px',
       },
     },
   },

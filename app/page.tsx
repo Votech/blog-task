@@ -2,6 +2,7 @@
 
 import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
 import CategorySection from '@/features/categorySelection/components/CategorySection';
+import PostsSection from '@/features/posts/components/PostsSection';
 import { PostCategory } from '@/types/blog';
 import { useState } from 'react';
 
@@ -11,6 +12,11 @@ export default function Home() {
   function handleSetCategory(category: PostCategory) {
     setCategory(category);
   }
+
+  function unselectCategory() {
+    setCategory('');
+  }
+
   return (
     <div>
       <ContentWrapper>
@@ -20,6 +26,12 @@ export default function Home() {
         <CategorySection
           selectedCategory={category}
           onSelectCategory={handleSetCategory}
+        />
+      </ContentWrapper>
+      <ContentWrapper className="py-6 md:py-10">
+        <PostsSection
+          category={category}
+          onUnselectCategory={unselectCategory}
         />
       </ContentWrapper>
     </div>
