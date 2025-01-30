@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blog task
 
-## Getting Started
+This repository contains the source code for a blog task"
 
-First, run the development server:
+## Node
+
+This app depends on `node.js`. I recommend using v22, since it was used during the development. Consider using a Node version manager like [fnm](https://github.com/Schniz/fnm) or [NVM](https://github.com/nvm-sh/nvm).
+
+## Installation
+
+Clone this repository and run `npm install` to install JS dependencies.
+
+## How to run it
+
+Start the development server by running:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once started, the application will be available at: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Style Guide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The code is formatted using [Prettier](https://github.com/prettier/prettier).
+[TypeScript](https://www.typescript.org/) is used for type checking.
+[ESLint](https://eslint.org/) is used for linting.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Formating, types and linting are checked pre-commit by using [lint-staged](https://github.com/lint-staged/lint-staged) in pair with [Husky](https://github.com/typicode/husky).
