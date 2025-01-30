@@ -11,7 +11,7 @@ export default function CategoryGrid({
   selectedCategory,
 }: Props) {
   return (
-    <div className="grid grid-cols-4 gap-5 md:gap-10">
+    <div className="grid grid-cols-4 items-stretch gap-6 md:gap-10">
       <CategoryCards
         onSelectCategory={onSelectCategory}
         selectedCategory={selectedCategory}

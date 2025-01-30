@@ -2,15 +2,12 @@
 
 import useMobileVersion from '@/hooks/useMobileVersion';
 import { PostCategory } from '@/types/blog';
+import { CategoryCarousel } from './CategoryCarousel';
 import CategoryGrid from './CategoryGrid';
 
 interface Props {
   onSelectCategory: (category: PostCategory) => void;
   selectedCategory: PostCategory | '';
-}
-
-function Carousel() {
-  return <div>Carousel</div>;
 }
 
 export default function CategorySelection({
@@ -21,9 +18,14 @@ export default function CategorySelection({
 
   return (
     <div>
-      <h2 className="mg:pb-10 pb-5">Kategorie</h2>
+      {!isMobile && <h2 className="pb-6 md:pb-10">Kategorie</h2>}
       {isMobile ? (
-        <Carousel />
+        <div className="flex justify-center">
+          <CategoryCarousel
+            onSelectCategory={onSelectCategory}
+            selectedCategory={selectedCategory}
+          />
+        </div>
       ) : (
         <CategoryGrid
           onSelectCategory={onSelectCategory}

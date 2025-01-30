@@ -31,7 +31,7 @@ export default function CategoryCard({
     <div
       onClick={handleClick}
       className={clsx(
-        'rounded-diagonal relative flex w-full cursor-pointer flex-col items-center overflow-hidden',
+        'rounded-diagonal relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0',
         bgColor,
       )}
     >
@@ -45,7 +45,7 @@ export default function CategoryCard({
         />
       )}
       <Image src={imgSrc} alt={category} width={366} height={230}></Image>
-      <div className="flex flex-col items-center gap-4 p-5">
+      <div className="flex flex-col items-center gap-4 p-6">
         <p className={clsx('font-bold', textColor)}>{category.toUpperCase()}</p>
         {Icon && <Icon />}
       </div>

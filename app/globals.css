@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-  @apply text-2xl font-bold md:text-3xl;
+  @apply py-3 text-2xl font-bold sm:py-6 md:py-10 md:text-3xl;
 }
 
 h2 {
@@ -37,5 +37,25 @@ h2 {
 @layer base {
   .rounded-diagonal {
     @apply rounded-br-[40px] rounded-tl-[40px];
+  }
+  .embla {
+    overflow: hidden;
+  }
+
+  .embla__container {
+    display: flex;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  .embla__slide:not(:first-child) {
+    margin-left: 20px;
+  }
+
+  .embla__slide:not(:last-child) {
+    margin-right: 20px;
   }
 }

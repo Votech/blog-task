@@ -23,6 +23,9 @@ export default {
         'silver-grey': 'var(--silver-grey)',
         'cold-blue': 'var(--cold-blue)',
       },
+      screens: {
+        xs: '400px',
+      },
     },
   },
   plugins: [],

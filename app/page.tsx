@@ -14,9 +14,9 @@ export default function Home() {
   return (
     <div>
       <ContentWrapper>
-        <h1 className="bg-primary py-5 md:py-10">Blog Edukacyjny</h1>
+        <h1 className="bg-primary">Blog Edukacyjny</h1>
       </ContentWrapper>
-      <ContentWrapper className="bg-gray-100 py-5 md:py-10">
+      <ContentWrapper className="bg-gray-100 py-6 md:py-10">
         <CategorySection
           selectedCategory={category}
           onSelectCategory={handleSetCategory}
