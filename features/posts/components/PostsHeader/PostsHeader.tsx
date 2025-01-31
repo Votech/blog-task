@@ -11,7 +11,7 @@ export default function PostsHeader() {
   return (
     <div className="grid grid-cols-1 gap-5 xs2:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <div className="col-start-1 row-start-1 flex items-center gap-5 lg:col-span-2">
-        <h2>Wpisy</h2>
+        <h2 className="m-0">Wpisy</h2>
         {!!category && <PostsHeaderCategory />}
       </div>
       <div className="col-start-1 row-start-2 flex items-center md:col-start-2 md:row-start-1 lg:col-start-3">
