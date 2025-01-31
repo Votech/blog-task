@@ -10,7 +10,7 @@ export default function ContentWrapper({
     <div
       className={clsx(
         'flex w-full flex-col items-center justify-center',
-        !!className && className,
+        className,
       )}
       {...props}
     >

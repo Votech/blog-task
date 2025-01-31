@@ -1,3 +1,6 @@
+'use client';
+
+import useGlobalStore from '@/lib/store';
 import clsx from 'clsx';
 
 function AllOrLikedButton({
@@ -24,26 +27,21 @@ function AllOrLikedButton({
   );
 }
 
-interface Props {
-  onToggleLikedPostsFilter: (shouldFilterLikedPosts: boolean) => void;
-  shouldFilterLikedPosts: boolean;
-}
+export default function PostsHeaderAllOrLiked() {
+  const { shouldFilterLikedPosts, setShouldFilterLikedPosts } =
+    useGlobalStore();
 
-export default function PostsHeaderAllOrLiked({
-  onToggleLikedPostsFilter,
-  shouldFilterLikedPosts,
-}: Props) {
   return (
     <div className="flex items-center gap-2">
       <AllOrLikedButton
-        onClick={() => onToggleLikedPostsFilter(false)}
+        onClick={() => setShouldFilterLikedPosts(false)}
         active={!shouldFilterLikedPosts}
       >
         WSZYSTKIE
       </AllOrLikedButton>
       <span className="text-gray-300">|</span>
       <AllOrLikedButton
-        onClick={() => onToggleLikedPostsFilter(true)}
+        onClick={() => setShouldFilterLikedPosts(true)}
         active={shouldFilterLikedPosts}
       >
         ULUBIONE

@@ -1,5 +1,8 @@
+'use client';
+
+import useGlobalStore from '@/lib/store';
 import getLikedPosts from '@/lib/utils/getLikedPosts';
-import { Post, PostCategory, PostJsonPlaceholder } from '@/types/blog';
+import { Post, PostJsonPlaceholder } from '@/types/blog';
 import { LoaderCircle } from 'lucide-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { POSTS_LIMIT } from '../constants';
@@ -10,8 +13,8 @@ import PostsHeader from './PostsHeader/PostsHeader';
 
 const getPostsToShow = (
   posts: PostJsonPlaceholder[],
-  category: PostCategory | '',
-  shouldFilterLikedPosts = false,
+  category: string,
+  shouldFilterLikedPosts: boolean,
 ): Post[] => {
   let postsMapped = getPostsWithMockData(posts);
 
@@ -27,19 +30,8 @@ const getPostsToShow = (
   return postsMapped;
 };
 
-interface Props {
-  category: PostCategory | '';
-  onUnselectCategory: () => void;
-  shouldFilterLikedPosts: boolean;
-  onToggleLikedPostsFilter: (shouldFilterLiekdPosts: boolean) => void;
-}
-
-export default function PostsSection({
-  category,
-  onUnselectCategory,
-  shouldFilterLikedPosts,
-  onToggleLikedPostsFilter,
-}: Props) {
+export default function PostsSection() {
+  const { category, shouldFilterLikedPosts } = useGlobalStore();
   const { posts, size, setSize } = useJsonPlaceholderInfinite();
   const postsToShow = getPostsToShow(posts, category, shouldFilterLikedPosts);
   const isFilterActived = !!category || shouldFilterLikedPosts;
@@ -54,12 +46,7 @@ export default function PostsSection({
   return (
     <div>
       <div className="mb-6 md:mb-10">
-        <PostsHeader
-          category={category}
-          onUnselectCategory={onUnselectCategory}
-          onToggleLikedPostsFilter={onToggleLikedPostsFilter}
-          shouldFilterLikedPosts={shouldFilterLikedPosts}
-        />
+        <PostsHeader />
       </div>
 
       <InfiniteScroll

@@ -21,7 +21,7 @@ const toggleLikedPost = (id: number) => {
 export default function AddToLiked() {
   const params = useParams();
   const id = parseInt((params.id as string) || '', 10);
-  const [liked, setLiked] = useState(false);
+  const [liked, setLiked] = useState(isPostLiked(id));
 
   useEffect(() => {
     setLiked(isPostLiked(id));

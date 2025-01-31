@@ -1,38 +1,30 @@
+import resolveColors from '@/lib/utils/resolveColors';
 import { PostCategory } from '@/types/blog';
 import clsx from 'clsx';
 import Image from 'next/image';
+import resolveIcon from '../utils/resolveIcon';
 
 interface Props {
-  category: PostCategory;
+  cardCategory: PostCategory;
   onSelectCategory: (category: PostCategory) => void;
-  imgSrc: string;
-  Icon: React.ComponentType | null;
-  textColor: string;
-  bgColor: string;
-  borderColor: string;
   selected: boolean;
 }
 
 export default function CategoryCard({
-  category,
+  cardCategory,
   onSelectCategory,
-  imgSrc,
-  Icon,
-  bgColor = 'bg-category-green',
-  borderColor = 'bg-category-green-dark',
-  textColor = 'text-category-green',
-  selected = true,
+  selected,
 }: Props) {
-  function handleClick() {
-    onSelectCategory(category);
-  }
+  const { background, borderColor, textColor } = resolveColors(cardCategory);
+  const Icon = resolveIcon(cardCategory);
+  const imgSrc = `/images/${cardCategory}.webp`;
 
   return (
     <div
-      onClick={handleClick}
+      onClick={() => onSelectCategory(cardCategory)}
       className={clsx(
         'rounded-diagonal-lg relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0',
-        bgColor,
+        background,
       )}
     >
       {/* Overlay border */}
@@ -44,9 +36,11 @@ export default function CategoryCard({
           )}
         />
       )}
-      <Image src={imgSrc} alt={category} width={366} height={230}></Image>
+      <Image src={imgSrc} alt={cardCategory} width={366} height={230} />
       <div className="flex flex-col items-center gap-4 p-6">
-        <p className={clsx('font-bold', textColor)}>{category.toUpperCase()}</p>
+        <p className={clsx('font-bold', textColor)}>
+          {cardCategory.toUpperCase()}
+        </p>
         {Icon && <Icon />}
       </div>
     </div>

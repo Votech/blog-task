@@ -1,18 +1,9 @@
-import { PostCategory } from '@/types/blog';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 import CategorySlides from './CategorySlides';
 
-interface Props {
-  onSelectCategory: (category: PostCategory) => void;
-  selectedCategory: PostCategory | '';
-}
-
-export function CategoryCarousel({
-  onSelectCategory,
-  selectedCategory,
-}: Props) {
+export function CategoryCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -65,10 +56,7 @@ export function CategoryCarousel({
         {/* Viewport */}
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            <CategorySlides
-              onSelectCategory={onSelectCategory}
-              selectedCategory={selectedCategory}
-            />
+            <CategorySlides />
           </div>
         </div>
         {/* Arrows */}

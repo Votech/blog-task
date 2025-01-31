@@ -9,7 +9,7 @@ async function fetcher(url: string): Promise<PostJsonPlaceholder> {
   return response.json();
 }
 
-export default function useJsonPlaceholder(id: string): {
+export default function useJsonPlaceholder(id: number): {
   post: PostJsonPlaceholder | undefined;
   isLoading: boolean;
 } {

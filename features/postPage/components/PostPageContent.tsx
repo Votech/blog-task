@@ -8,7 +8,7 @@ import imageMock from '../images/post_img_mock.webp';
 
 export default function PostPageContent() {
   const params = useParams();
-  const id = (params.id as string) || '';
+  const id = Number(params.id);
 
   const { post, isLoading } = usePostDetails(id);
 

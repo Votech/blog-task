@@ -49,6 +49,7 @@ h3 {
     @apply rounded-br-[30px] rounded-tl-[30px];
   }
 
+  /* Embla Carousel */
   .embla {
     overflow: hidden;
   }
