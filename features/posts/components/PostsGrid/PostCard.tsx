@@ -11,14 +11,14 @@ interface Props {
 }
 
 export default function PostCard({ post }: Props) {
-  const textColor = resolveColors(post.category).textColor;
+  const { highlightColor } = resolveColors(post.category);
 
   return (
     <div key={post.id} className="rounded-diagonal-md bg-grey-light px-6 py-7">
       <div
         className={clsx(
           'mb-2 inline-block border-b-[3px] border-current text-sm font-bold italic',
-          textColor,
+          highlightColor,
         )}
       >
         {post.category.toUpperCase()}

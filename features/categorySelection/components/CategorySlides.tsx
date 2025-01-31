@@ -13,6 +13,8 @@ export default function CategorySlides({
   onSelectCategory,
   selectedCategory,
 }: Props) {
+  const { background, borderColor, textColor } =
+    resolveColors(selectedCategory);
   return CATEGORY_LIST.map((category) => (
     <div className="embla__slide flex justify-center" key={category}>
       <CategoryCard
@@ -20,9 +22,9 @@ export default function CategorySlides({
         onSelectCategory={onSelectCategory}
         imgSrc={`/images/${category}.webp`}
         Icon={resolveIcon(category)}
-        textColor={resolveColors(category).text}
-        bgColor={resolveColors(category).bg}
-        borderColor={resolveColors(category).border}
+        textColor={textColor}
+        bgColor={background}
+        borderColor={borderColor}
         selected={category === selectedCategory}
       />
     </div>

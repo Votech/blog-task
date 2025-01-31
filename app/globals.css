@@ -15,6 +15,7 @@
   --category-green-dark: #4f9d69;
   --silver-grey: #414042;
   --cold-blue: #3f3a54;
+  --cold-blue-strong: #363b5c;
   --violet-red: #8e2f3f;
   --grey-light: #f4f4f4;
 }
@@ -28,15 +29,15 @@ body {
 }
 
 h1 {
-  @apply py-3 text-2xl font-bold sm:py-6 md:py-10 md:text-3xl;
+  @apply py-3 text-2xl font-bold text-cold-blue-strong sm:py-6 md:py-10 md:text-3xl;
 }
 
 h2 {
-  @apply text-xl font-bold md:text-2xl;
+  @apply text-xl font-bold text-cold-blue-strong md:text-2xl;
 }
 
 h3 {
-  @apply text-lg font-bold md:text-xl;
+  @apply text-lg font-bold text-cold-blue-strong md:text-xl;
 }
 
 @layer base {

@@ -13,18 +13,21 @@ export default function CategoryCards({
   onSelectCategory,
   selectedCategory,
 }: Props) {
-  const categories = CATEGORY_LIST;
-  return categories.map((category) => (
-    <CategoryCard
-      key={category}
-      category={category}
-      onSelectCategory={onSelectCategory}
-      imgSrc={`/images/${category}.webp`}
-      Icon={resolveIcon(category)}
-      textColor={resolveColors(category).text}
-      bgColor={resolveColors(category).bg}
-      borderColor={resolveColors(category).border}
-      selected={category === selectedCategory}
-    />
-  ));
+  return CATEGORY_LIST.map((category) => {
+    const { background, borderColor, textColor } = resolveColors(category);
+
+    return (
+      <CategoryCard
+        key={category}
+        category={category}
+        onSelectCategory={onSelectCategory}
+        imgSrc={`/images/${category}.webp`}
+        Icon={resolveIcon(category)}
+        textColor={textColor}
+        bgColor={background}
+        borderColor={borderColor}
+        selected={category === selectedCategory}
+      />
+    );
+  });
 }
