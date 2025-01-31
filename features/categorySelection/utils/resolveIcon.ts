@@ -1,6 +1,6 @@
 import { PostCategory } from '@/types/blog';
 import dynamic from 'next/dynamic';
-import { CATEGORY } from '../constants';
+import { CATEGORY } from '../../../lib/constants';
 
 const BookSvg = dynamic(() => import('../icons/Book'));
 const CloudToolsSvg = dynamic(() => import('../icons/CloudTools'));

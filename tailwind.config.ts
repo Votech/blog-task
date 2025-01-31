@@ -23,6 +23,7 @@ export default {
         'silver-grey': 'var(--silver-grey)',
         'cold-blue': 'var(--cold-blue)',
         'violet-red': 'var(--violet-red)',
+        'grey-light': 'var(--grey-light)',
       },
       screens: {
         xs: '400px',

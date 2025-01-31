@@ -16,7 +16,7 @@
   --silver-grey: #414042;
   --cold-blue: #3f3a54;
   --violet-red: #8e2f3f;
-  --rounded-diagonal: rounded-tl-lg rounded-br-lg;
+  --grey-light: #f4f4f4;
 }
 
 body {
@@ -36,9 +36,14 @@ h2 {
 }
 
 @layer base {
-  .rounded-diagonal {
+  .rounded-diagonal-lg {
     @apply rounded-br-[40px] rounded-tl-[40px];
   }
+
+  .rounded-diagonal-md {
+    @apply rounded-br-[30px] rounded-tl-[30px];
+  }
+
   .embla {
     overflow: hidden;
   }

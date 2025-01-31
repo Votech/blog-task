@@ -1,6 +1,6 @@
+import { CATEGORY_LIST } from '@/lib/constants';
+import resolveColors from '@/lib/utils/resolveColors';
 import { PostCategory } from '@/types/blog';
-import { CATEGORY_LIST } from '../constants';
-import resolveColors from '../utils/resolveColors';
 import resolveIcon from '../utils/resolveIcon';
 import CategoryCard from './CategoryCard';
 

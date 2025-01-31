@@ -14,7 +14,7 @@ export default function ContentWrapper({
       )}
       {...props}
     >
-      <div className="w-full max-w-5xl px-6 md:px-10 lg:px-0">{children}</div>
+      <div className="w-full max-w-6xl px-6 md:px-10 lg:px-0">{children}</div>
     </div>
   );
 }

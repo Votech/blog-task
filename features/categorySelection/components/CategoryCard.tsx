@@ -31,7 +31,7 @@ export default function CategoryCard({
     <div
       onClick={handleClick}
       className={clsx(
-        'rounded-diagonal relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0',
+        'rounded-diagonal-lg relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0',
         bgColor,
       )}
     >
@@ -39,7 +39,7 @@ export default function CategoryCard({
       {selected && (
         <div
           className={clsx(
-            'rounded-diagonal absolute inset-0 border-[6px]',
+            'rounded-diagonal-lg absolute inset-0 border-[6px]',
             borderColor,
           )}
         />
