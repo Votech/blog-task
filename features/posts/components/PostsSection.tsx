@@ -1,5 +1,8 @@
 import { CATEGORY_LIST } from '@/lib/constants';
 import { Post, PostCategory, PostJsonPlaceholder } from '@/types/blog';
+import { LoaderCircle } from 'lucide-react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { POSTS_LIMIT } from '../constants';
 import useJsonPlaceholder from '../hooks/useJsonPlaceholder';
 import PostsGrid from './PostsGrid/PostsGrid';
 import PostsHeader from './PostsHeader/PostsHeader';
@@ -28,9 +31,9 @@ interface Props {
 }
 
 export default function PostsSection({ category, onUnselectCategory }: Props) {
-  const { posts } = useJsonPlaceholder();
-
+  const { posts, size, setSize } = useJsonPlaceholder();
   const postsToShow = posts && getPostsToShow(posts);
+  const hasMore = posts.length < POSTS_LIMIT;
 
   return (
     <div>
@@ -40,7 +43,28 @@ export default function PostsSection({ category, onUnselectCategory }: Props) {
           onUnselectCategory={onUnselectCategory}
         />
       </div>
-      {postsToShow && <PostsGrid posts={postsToShow} />}
+
+      <InfiniteScroll
+        dataLength={posts.length}
+        next={() => setSize(size + 1)}
+        hasMore={hasMore}
+        scrollThreshold={1}
+        loader={
+          <div className="m-5 flex items-center justify-center text-center text-sm text-zinc-600">
+            <LoaderCircle size={24} className="mr-3 animate-spin" />
+            <p>Loading more posts...</p>
+          </div>
+        }
+        endMessage={
+          <div className="m-5">
+            <p className="text-center text-sm text-zinc-600">
+              You have reached the end! No more posts to show.
+            </p>
+          </div>
+        }
+      >
+        {posts.length > 0 && <PostsGrid posts={postsToShow as Post[]} />}
+      </InfiniteScroll>
     </div>
   );
 }

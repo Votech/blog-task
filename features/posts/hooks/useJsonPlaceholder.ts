@@ -11,7 +11,7 @@ async function fetcher(url: string): Promise<PostJsonPlaceholder[]> {
 }
 
 interface UseJsonPlaceholder {
-  posts: PostJsonPlaceholder[] | undefined;
+  posts: PostJsonPlaceholder[];
   isLoading: boolean;
   isError: boolean;
   size: number;
@@ -38,7 +38,7 @@ export default function useJsonPlaceholder(): UseJsonPlaceholder {
   );
 
   return {
-    posts: data?.flat(),
+    posts: (data && data?.flat()) ?? [],
     isLoading,
     isError: !!error,
     size,
