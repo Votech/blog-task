@@ -1,7 +1,7 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
-import CategorySlides from './CategorySlides';
+import CategorySlides from '../CategorySlides';
 
 export function CategoryCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel();

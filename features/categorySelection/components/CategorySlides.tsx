@@ -1,6 +1,6 @@
 import { CATEGORY_LIST } from '@/lib/constants';
 import useGlobalStore from '@/lib/store';
-import CategoryCard from './CategoryCard';
+import CategoryCard from './CategoryCard/CategoryCard';
 
 export default function CategorySlides() {
   const { category: selectedCategory, setCategory } = useGlobalStore();

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryCard Snapshot matches snapshot when selected is false 1`] = `
+<DocumentFragment>
+  <div
+    class="rounded-diagonal-lg relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0 bg-category-blue"
+  >
+    <img
+      alt="wiedza"
+      data-nimg="1"
+      decoding="async"
+      height="230"
+      loading="lazy"
+      src="/_next/image?url=%2Fimages%2Fwiedza.webp&w=750&q=75"
+      srcset="/_next/image?url=%2Fimages%2Fwiedza.webp&w=384&q=75 1x, /_next/image?url=%2Fimages%2Fwiedza.webp&w=750&q=75 2x"
+      style="color: transparent;"
+      width="366"
+    />
+    <div
+      class="flex flex-col items-center gap-4 p-6"
+    >
+      <p
+        class="font-bold text-white"
+      >
+        WIEDZA
+      </p>
+      <svg
+        data-testid="mock-icon"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CategoryCard Snapshot matches snapshot when selected is true 1`] = `
+<DocumentFragment>
+  <div
+    class="rounded-diagonal-lg relative flex h-full min-h-72 w-60 w-full cursor-pointer flex-col items-center overflow-hidden xs:w-auto sm:min-h-0 bg-category-blue"
+  >
+    <div
+      class="rounded-diagonal-lg absolute inset-0 border-[6px] border-category-blue-dark"
+    />
+    <img
+      alt="wiedza"
+      data-nimg="1"
+      decoding="async"
+      height="230"
+      loading="lazy"
+      src="/_next/image?url=%2Fimages%2Fwiedza.webp&w=750&q=75"
+      srcset="/_next/image?url=%2Fimages%2Fwiedza.webp&w=384&q=75 1x, /_next/image?url=%2Fimages%2Fwiedza.webp&w=750&q=75 2x"
+      style="color: transparent;"
+      width="366"
+    />
+    <div
+      class="flex flex-col items-center gap-4 p-6"
+    >
+      <p
+        class="font-bold text-white"
+      >
+        WIEDZA
+      </p>
+      <svg
+        data-testid="mock-icon"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

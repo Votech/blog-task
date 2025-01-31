@@ -1,6 +1,6 @@
 import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
 import CategorySection from '@/features/categorySelection/components/CategorySection';
-import PostsSection from '@/features/posts/components/PostsSection';
+import PostsSection from '@/features/posts/components/PostsSection/PostsSection';
 
 export default function Home() {
   return (

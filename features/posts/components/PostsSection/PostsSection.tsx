@@ -5,11 +5,11 @@ import getLikedPosts from '@/lib/utils/getLikedPosts';
 import { Post, PostJsonPlaceholder } from '@/types/blog';
 import { AlertCircle, LoaderCircle } from 'lucide-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { POSTS_LIMIT } from '../constants';
-import useJsonPlaceholderInfinite from '../hooks/useJsonPlaceholderInfinite';
-import getPostsWithMockData from '../lib/utils/getPostsWithMockData';
-import PostsGrid from './PostsGrid/PostsGrid';
-import PostsHeader from './PostsHeader/PostsHeader';
+import { POSTS_LIMIT } from '../../constants';
+import useJsonPlaceholderInfinite from '../../hooks/useJsonPlaceholderInfinite';
+import getPostsWithMockData from '../../utils/getPostsWithMockData';
+import PostsGrid from '../PostsGrid/PostsGrid';
+import PostsHeader from '../PostsHeader/PostsHeader';
 
 const getPostsToShow = (
   posts: PostJsonPlaceholder[],

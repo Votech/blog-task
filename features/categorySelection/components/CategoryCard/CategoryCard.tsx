@@ -2,7 +2,7 @@ import resolveColors from '@/lib/utils/resolveColors';
 import { PostCategory } from '@/types/blog';
 import clsx from 'clsx';
 import Image from 'next/image';
-import resolveIcon from '../utils/resolveIcon';
+import resolveIcon from '../../utils/resolveIcon';
 
 interface Props {
   cardCategory: PostCategory;

@@ -1,6 +1,6 @@
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import AddToLiked from './AddToLiked';
+import AddToLiked from './AddToLiked/AddToLiked';
 
 export default function PostPageHeader() {
   return (

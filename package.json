@@ -9,7 +9,8 @@
     "lint": "next lint",
     "prepare": "husky",
     "tsc": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@typescript-eslint/parser": "^8.22.0",

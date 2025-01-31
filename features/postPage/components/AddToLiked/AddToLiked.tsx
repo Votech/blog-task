@@ -38,7 +38,7 @@ export default function AddToLiked() {
       className={`flex items-center gap-4 rounded-lg p-2 text-sm font-bold transition-all`}
     >
       <Star size={33} fill={liked ? 'black' : 'white'} />
-      <span>Dodaj do ulubionych</span>
+      <span>{liked ? 'Usuń z ulubionych' : 'Dodaj do ulubionych'}</span>
     </button>
   );
 }

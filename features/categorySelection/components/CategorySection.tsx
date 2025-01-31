@@ -1,6 +1,6 @@
 'use client';
 
-import { CategoryCarousel } from './CategoryCarousel';
+import { CategoryCarousel } from './CategoryCarousel/CategoryCarousel';
 import CategoryGrid from './CategoryGrid';
 
 export default function CategorySection() {
