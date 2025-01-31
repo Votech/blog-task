@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [category, setCategory] = useState<PostCategory | ''>('');
+  const [shouldFilterLikedPosts, setShouldFilterLikedPosts] = useState(false);
 
   function handleSetCategory(category: PostCategory) {
     setCategory(category);
@@ -15,6 +16,10 @@ export default function Home() {
 
   function unselectCategory() {
     setCategory('');
+  }
+
+  function toggleLikedPostsFilter(shouldFilterLiekdPosts: boolean) {
+    setShouldFilterLikedPosts(shouldFilterLiekdPosts);
   }
 
   return (
@@ -32,6 +37,8 @@ export default function Home() {
         <PostsSection
           category={category}
           onUnselectCategory={unselectCategory}
+          shouldFilterLikedPosts={shouldFilterLikedPosts}
+          onToggleLikedPostsFilter={toggleLikedPostsFilter}
         />
       </ContentWrapper>
     </div>

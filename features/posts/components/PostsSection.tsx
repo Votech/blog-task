@@ -1,39 +1,55 @@
-import { CATEGORY_LIST } from '@/lib/constants';
+import getLikedPosts from '@/lib/utils/getLikedPosts';
 import { Post, PostCategory, PostJsonPlaceholder } from '@/types/blog';
 import { LoaderCircle } from 'lucide-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { POSTS_LIMIT } from '../constants';
 import useJsonPlaceholderInfinite from '../hooks/useJsonPlaceholderInfinite';
+import getPostsWithMockData from '../lib/utils/getPostsWithMockData';
 import PostsGrid from './PostsGrid/PostsGrid';
 import PostsHeader from './PostsHeader/PostsHeader';
 
-const getPostsToShow = (posts: PostJsonPlaceholder[]): Post[] => {
-  const postsToShow = posts.map((post, index) => {
-    const start = new Date(2024, 0, 1).getTime();
-    const end = Date.now();
-    const timestamp = new Date(
-      start + (index * (end - start)) / posts.length,
-    ).getTime();
-    const category = CATEGORY_LIST[index % CATEGORY_LIST.length];
+const getPostsToShow = (
+  posts: PostJsonPlaceholder[],
+  category: PostCategory | '',
+  shouldFilterLikedPosts = false,
+): Post[] => {
+  let postsMapped = getPostsWithMockData(posts);
 
-    return {
-      category,
-      timestamp,
-      ...post,
-    };
-  });
+  if (shouldFilterLikedPosts) {
+    const likedPosts = getLikedPosts();
+    postsMapped = postsMapped.filter((post) => likedPosts.includes(post.id));
+  }
 
-  return postsToShow;
+  if (category) {
+    postsMapped = postsMapped.filter((post) => post.category === category);
+  }
+
+  return postsMapped;
 };
+
 interface Props {
   category: PostCategory | '';
   onUnselectCategory: () => void;
+  shouldFilterLikedPosts: boolean;
+  onToggleLikedPostsFilter: (shouldFilterLiekdPosts: boolean) => void;
 }
 
-export default function PostsSection({ category, onUnselectCategory }: Props) {
+export default function PostsSection({
+  category,
+  onUnselectCategory,
+  shouldFilterLikedPosts,
+  onToggleLikedPostsFilter,
+}: Props) {
   const { posts, size, setSize } = useJsonPlaceholderInfinite();
-  const postsToShow = posts && getPostsToShow(posts);
-  const hasMore = posts.length < POSTS_LIMIT;
+  const postsToShow = getPostsToShow(posts, category, shouldFilterLikedPosts);
+  const isFilterActived = !!category || shouldFilterLikedPosts;
+  const hasMore = !isFilterActived && posts.length < POSTS_LIMIT;
+
+  function handleNextPage() {
+    if (!isFilterActived) {
+      setSize(size + 1);
+    }
+  }
 
   return (
     <div>
@@ -41,12 +57,14 @@ export default function PostsSection({ category, onUnselectCategory }: Props) {
         <PostsHeader
           category={category}
           onUnselectCategory={onUnselectCategory}
+          onToggleLikedPostsFilter={onToggleLikedPostsFilter}
+          shouldFilterLikedPosts={shouldFilterLikedPosts}
         />
       </div>
 
       <InfiniteScroll
-        dataLength={posts.length}
-        next={() => setSize(size + 1)}
+        dataLength={postsToShow.length}
+        next={handleNextPage}
         hasMore={hasMore}
         scrollThreshold={1}
         loader={
@@ -63,7 +81,7 @@ export default function PostsSection({ category, onUnselectCategory }: Props) {
           </div>
         }
       >
-        {posts.length > 0 && <PostsGrid posts={postsToShow as Post[]} />}
+        <PostsGrid posts={postsToShow as Post[]} />
       </InfiniteScroll>
     </div>
   );

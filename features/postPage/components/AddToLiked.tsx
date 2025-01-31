@@ -6,11 +6,11 @@ import { Star } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const isPostLiked = (id: string): boolean => {
+const isPostLiked = (id: number): boolean => {
   return getLikedPosts().includes(id);
 };
 
-const toggleLikedPost = (id: string) => {
+const toggleLikedPost = (id: number) => {
   const likedPosts = getLikedPosts();
   const updatedLikedPosts = likedPosts.includes(id)
     ? likedPosts.filter((postId) => postId !== id)
@@ -20,7 +20,7 @@ const toggleLikedPost = (id: string) => {
 
 export default function AddToLiked() {
   const params = useParams();
-  const id = (params.id as string) || '';
+  const id = parseInt((params.id as string) || '', 10);
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {

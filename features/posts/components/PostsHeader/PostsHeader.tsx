@@ -6,9 +6,16 @@ import PostsHeaderSort from './PostsHeaderSort';
 interface Props {
   category: PostCategory | '';
   onUnselectCategory: () => void;
+  onToggleLikedPostsFilter: (shouldFilterLiekdPosts: boolean) => void;
+  shouldFilterLikedPosts: boolean;
 }
 
-export default function PostsHeader({ category, onUnselectCategory }: Props) {
+export default function PostsHeader({
+  category,
+  onUnselectCategory,
+  onToggleLikedPostsFilter,
+  shouldFilterLikedPosts,
+}: Props) {
   return (
     <div className="grid grid-cols-1 gap-5 xs2:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {/* Category */}
@@ -24,7 +31,10 @@ export default function PostsHeader({ category, onUnselectCategory }: Props) {
 
       {/* All or Liked */}
       <div className="col-start-1 row-start-2 flex items-center md:col-start-2 md:row-start-1 lg:col-start-3">
-        <PostsHeaderAllOrLiked />
+        <PostsHeaderAllOrLiked
+          onToggleLikedPostsFilter={onToggleLikedPostsFilter}
+          shouldFilterLikedPosts={shouldFilterLikedPosts}
+        />
       </div>
 
       {/* Sort */}
