@@ -9,8 +9,8 @@ export default function Header() {
     <header>
       <ContentWrapper>
         <div className="py-5 sm:py-10">
-          <Logo className="hidden h-14 sm:block" />
-          <LogoMobile className="h-14 sm:hidden" />
+          <Logo data-testid="desktop-logo" className="hidden h-14 sm:block" />
+          <LogoMobile data-testid="mobile-logo" className="h-14 sm:hidden" />
         </div>
         <div className="hidden sm:block">
           <div className="border-b border-gray-300 pb-3">
