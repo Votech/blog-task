@@ -3,7 +3,7 @@ import { Post, PostCategory, PostJsonPlaceholder } from '@/types/blog';
 import { LoaderCircle } from 'lucide-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { POSTS_LIMIT } from '../constants';
-import useJsonPlaceholder from '../hooks/useJsonPlaceholder';
+import useJsonPlaceholderInfinite from '../hooks/useJsonPlaceholderInfinite';
 import PostsGrid from './PostsGrid/PostsGrid';
 import PostsHeader from './PostsHeader/PostsHeader';
 
@@ -31,7 +31,7 @@ interface Props {
 }
 
 export default function PostsSection({ category, onUnselectCategory }: Props) {
-  const { posts, size, setSize } = useJsonPlaceholder();
+  const { posts, size, setSize } = useJsonPlaceholderInfinite();
   const postsToShow = posts && getPostsToShow(posts);
   const hasMore = posts.length < POSTS_LIMIT;
 

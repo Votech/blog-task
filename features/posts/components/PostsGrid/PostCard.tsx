@@ -36,7 +36,11 @@ export default function PostCard({ post }: Props) {
         {new Date(post.timestamp).toLocaleDateString()}
       </div>
       <p className="mb-5 text-sm">{post.body}</p>
-      <Link href="" className="flex items-center gap-2 text-sm font-bold">
+      <Link
+        href={`/post/${post.id}`}
+        passHref
+        className="flex items-center gap-2 text-sm font-bold"
+      >
         zobacz więcej
         <ArrowRight size={16} />
       </Link>

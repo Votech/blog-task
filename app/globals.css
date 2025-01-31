@@ -35,6 +35,10 @@ h2 {
   @apply text-xl font-bold md:text-2xl;
 }
 
+h3 {
+  @apply text-lg font-bold md:text-xl;
+}
+
 @layer base {
   .rounded-diagonal-lg {
     @apply rounded-br-[40px] rounded-tl-[40px];

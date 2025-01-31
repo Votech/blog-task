@@ -18,7 +18,7 @@ interface UseJsonPlaceholder {
   setSize: (size: number) => void;
 }
 
-export default function useJsonPlaceholder(): UseJsonPlaceholder {
+export default function useJsonPlaceholderInfinite(): UseJsonPlaceholder {
   const getURL = (index: number) => {
     const URL = `${process.env.NEXT_PUBLIC_JSONPLACEHOLDER_API_URL}/posts/?_per_page=${POSTS_PER_PAGE}&_page=${index + 1}`;
     return URL;
