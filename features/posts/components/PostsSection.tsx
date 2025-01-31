@@ -3,7 +3,7 @@
 import useGlobalStore from '@/lib/store';
 import getLikedPosts from '@/lib/utils/getLikedPosts';
 import { Post, PostJsonPlaceholder } from '@/types/blog';
-import { LoaderCircle } from 'lucide-react';
+import { AlertCircle, LoaderCircle } from 'lucide-react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { POSTS_LIMIT } from '../constants';
 import useJsonPlaceholderInfinite from '../hooks/useJsonPlaceholderInfinite';
@@ -32,7 +32,7 @@ const getPostsToShow = (
 
 export default function PostsSection() {
   const { category, shouldFilterLikedPosts } = useGlobalStore();
-  const { posts, size, setSize } = useJsonPlaceholderInfinite();
+  const { posts, size, setSize, isError } = useJsonPlaceholderInfinite();
   const postsToShow = getPostsToShow(posts, category, shouldFilterLikedPosts);
   const isFilterActived = !!category || shouldFilterLikedPosts;
   const hasMore = !isFilterActived && posts.length < POSTS_LIMIT;
@@ -41,6 +41,20 @@ export default function PostsSection() {
     if (!isFilterActived) {
       setSize(size + 1);
     }
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center">
+        <div className="flex items-center justify-center gap-2 rounded-md border border-red-500 px-6 py-2 text-center">
+          <AlertCircle size={32} className="text-red-500" />
+          <p className="text-sm text-zinc-600">
+            Oops! Something went wrong while loading the posts. Please try again
+            later.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (

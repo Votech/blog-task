@@ -1,5 +1,3 @@
-'use client';
-
 import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
 import CategorySection from '@/features/categorySelection/components/CategorySection';
 import PostsSection from '@/features/posts/components/PostsSection';
