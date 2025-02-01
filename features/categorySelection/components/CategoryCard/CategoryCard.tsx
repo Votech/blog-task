@@ -36,7 +36,13 @@ export default function CategoryCard({
           )}
         />
       )}
-      <Image src={imgSrc} alt={cardCategory} width={366} height={230} />
+      <Image
+        priority={true}
+        src={imgSrc}
+        alt={cardCategory}
+        width={366}
+        height={230}
+      />
       <div className="flex flex-col items-center gap-4 p-6">
         <p className={clsx('font-bold', textColor)}>
           {cardCategory.toUpperCase()}

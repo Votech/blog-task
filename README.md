@@ -62,6 +62,7 @@ Formatting, types and linting are checked pre-commit by using [lint-staged](http
 
 ## Potential upgrades
 
+- Add a dynamic blurred image placeholder for the image in the post details page.
 - Improve performance:
   - Virtualize post list to avoid rendering all the posts at the same time.
   - Post list should be memoized when features are added that re-render the list redundantly.
