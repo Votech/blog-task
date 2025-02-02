@@ -1,5 +1,3 @@
-'use client';
-
 import useGlobalStore from '@/lib/store';
 import PostsHeaderAllOrLiked from './PostsHeaderAllOrLiked';
 import PostsHeaderCategory from './PostsHeaderCategory';

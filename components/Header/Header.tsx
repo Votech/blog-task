@@ -1,5 +1,3 @@
-'use client';
-
 import ContentWrapper from '../ContentWrapper/ContentWrapper';
 import Logo from '../icons/Logo';
 import LogoMobile from '../icons/LogoMobile';

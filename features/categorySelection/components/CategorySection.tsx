@@ -1,5 +1,3 @@
-'use client';
-
 import { CategoryCarousel } from './CategoryCarousel/CategoryCarousel';
 import CategoryGrid from './CategoryGrid';
 

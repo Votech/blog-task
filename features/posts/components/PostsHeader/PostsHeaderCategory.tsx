@@ -1,5 +1,3 @@
-'use client';
-
 import useGlobalStore from '@/lib/store';
 import { X } from 'lucide-react';
 

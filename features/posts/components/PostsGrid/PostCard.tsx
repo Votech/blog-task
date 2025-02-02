@@ -1,5 +1,3 @@
-'use client';
-
 import resolveColors from '@/lib/utils/resolveColors';
 import { Post } from '@/types/blog';
 import clsx from 'clsx';
