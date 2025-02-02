@@ -48,6 +48,12 @@ The code is formatted using [Prettier](https://github.com/prettier/prettier).
 
 Formatting, types and linting are checked pre-commit by using [lint-staged](https://github.com/lint-staged/lint-staged) in pairs with [Husky](https://github.com/typicode/husky).
 
+## Lighthouse Score
+
+The current accessibility score can be improved to 100 by choosing colors with higher contrast for post cards.
+
+![Lighthouse Score](./lighthouse_score.png)
+
 ## Tech stack
 
 - [Next.js](https://nextjs.org/): mainly chosen for speed of spinning up a React app. Although this project doesn't utilize the SSR capabilities, it still benefits from the Next.js router, compiler, and its environment. Additionally, the app is easy to deploy.

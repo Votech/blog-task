@@ -36,16 +36,22 @@ export function CategoryCarousel() {
     <div className="relative flex">
       <div className="embla max-w-60 xs:max-w-72">
         {/* Dots */}
-        <div className="flex justify-center space-x-2 pb-6">
+        <div className="flex justify-center pb-6">
           {Array.from({ length: emblaApi?.scrollSnapList().length || 4 }).map(
             (_, index) => (
               <button
                 key={index}
-                className={`h-3 w-3 rounded-full border border-category-blue-dark ${
-                  index === selectedIndex && 'bg-category-blue-dark'
-                }`}
+                className="p-2"
+                aria-label={`Go to slide ${index + 1}`}
+                aria-pressed={index === selectedIndex}
                 onClick={() => scrollTo(index)}
-              />
+              >
+                <span
+                  className={`block size-4 rounded-full border border-category-blue-dark ${
+                    index === selectedIndex && 'bg-category-blue-dark'
+                  }`}
+                />
+              </button>
             ),
           )}
         </div>
@@ -59,12 +65,14 @@ export function CategoryCarousel() {
         <button
           className="embla__prev absolute -left-12 top-1/2 -translate-y-1/2 rounded-full"
           onClick={scrollPrev}
+          aria-label="Previous slide"
         >
           <ChevronLeft strokeWidth={0.5} className="size-12" />
         </button>
         <button
           className="embla__next absolute -right-12 top-1/2 -translate-y-1/2 rounded-full"
           onClick={scrollNext}
+          aria-label="Next slide"
         >
           <ChevronRight strokeWidth={0.5} className="size-12" />
         </button>
