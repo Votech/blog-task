@@ -1,47 +1,41 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CategorySlides from '../CategorySlides';
 
 export function CategoryCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
     emblaApi.on('select', onSelect);
     return () => {
       emblaApi.off('select', onSelect);
     };
-  }, [emblaApi, onSelect]);
+  }, [emblaApi]);
 
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi],
-  );
+  const scrollNext = () => {
+    emblaApi?.scrollNext();
+  };
+
+  const scrollPrev = () => {
+    emblaApi?.scrollPrev();
+  };
+
+  const scrollTo = (index: number) => {
+    emblaApi?.scrollTo(index);
+  };
 
   return (
     <div className="relative flex">
       <div className="embla max-w-60 xs:max-w-72">
         {/* Dots */}
         <div className="flex justify-center space-x-2 pb-6">
-          {Array.from({ length: emblaApi?.scrollSnapList().length || 0 }).map(
+          {Array.from({ length: emblaApi?.scrollSnapList().length || 4 }).map(
             (_, index) => (
               <button
                 key={index}
