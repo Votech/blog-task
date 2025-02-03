@@ -8,12 +8,14 @@ interface Props {
   cardCategory: PostCategory;
   onSelectCategory: (category: PostCategory) => void;
   selected: boolean;
+  imagePriority?: boolean;
 }
 
 export default function CategoryCard({
   cardCategory,
   onSelectCategory,
   selected,
+  imagePriority = true,
 }: Props) {
   const { background, borderColor, textColor } = resolveColors(cardCategory);
   const Icon = resolveIcon(cardCategory);
@@ -37,7 +39,8 @@ export default function CategoryCard({
         />
       )}
       <Image
-        priority={true}
+        priority={imagePriority}
+        loading={imagePriority ? 'eager' : 'lazy'}
         src={imgSrc}
         alt={cardCategory}
         width={366}
